@@ -1,0 +1,54 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: whitesmoke;
+}
+
+body > * {
+    margin: 0.25em;
+}
+
+.profile {
+    width: 150px;
+    height: 150px;
+    background: url("profile.jpeg") no-repeat center;
+    background-size: 150px auto;
+    border-radius: 100%;
+    background-position-y: 0;
+}
+
+h1 {
+    font-size: 36px;
+}
+
+ul {
+    list-style: none;
+    text-align: center;
+}
+
+li {
+    display: inline-block;
+}
+
+li:not(:last-child) {
+    margin-right: 1em;
+}
+
+a {
+    font-size: 22px;
+    color: black;
+    text-decoration: none;
+}
+
+img {
+    width: 16px;
+    height: 16px;
+}
