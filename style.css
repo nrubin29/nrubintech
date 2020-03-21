@@ -17,38 +17,43 @@ body > * {
 }
 
 .profile {
+    display: flex;
+    align-items: center;
+}
+
+.profile .img {
     width: 150px;
     height: 150px;
     background: url("profile.jpeg") no-repeat center;
-    background-size: 150px auto;
+    background-size: 155px auto;
     border-radius: 100%;
-    background-position-y: 0;
+    background-position-y: 35%;
+    background-position-x: 100%;
+    margin-right: 1em;
+}
+
+@media only screen and (max-width: 48em) {
+    .profile {
+        flex-direction: column;
+    }
+
+    .profile .text {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .profile .img {
+        margin-right: 0;
+    }
 }
 
 h1 {
     font-size: 36px;
+    font-weight: normal;
 }
 
-ul {
-    list-style: none;
-    text-align: center;
-}
-
-li {
-    display: inline-block;
-}
-
-li:not(:last-child) {
-    margin-right: 1em;
-}
-
-a {
-    font-size: 22px;
-    color: black;
-    text-decoration: none;
-}
-
-img {
-    width: 16px;
-    height: 16px;
+h4 {
+    font-weight: normal;
 }
