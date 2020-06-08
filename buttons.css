@@ -56,6 +56,10 @@ img {
     background: black;
 }
 
+.icon-dark.github {
+    display: none;
+}
+
 .button.youtube {
     background: red;
 }
@@ -66,4 +70,19 @@ img {
 
 .button.instagram {
     background: #e1306c;
+}
+
+@media (prefers-color-scheme: dark) {
+    .button.github {
+        color: black;
+        background: white;
+    }
+
+    .icon-dark.github {
+        display: initial;
+    }
+
+    .icon.github {
+        display: none;
+    }
 }

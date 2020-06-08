@@ -57,3 +57,13 @@ h1 {
 h4 {
     font-weight: normal;
 }
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background: #0a0a0a;
+    }
+
+    h1, h4 {
+        color: white;
+    }
+}
