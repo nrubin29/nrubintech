@@ -24,11 +24,9 @@ body > * {
 .profile .img {
     width: 150px;
     height: 150px;
-    background: url("profile.jpeg") no-repeat center;
+    background: url("profile.png") no-repeat center;
     background-size: 155px auto;
     border-radius: 100%;
-    background-position-y: 35%;
-    background-position-x: 100%;
     margin-right: 1em;
 }
 
