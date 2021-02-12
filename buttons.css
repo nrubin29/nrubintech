@@ -68,8 +68,16 @@ img {
     background: #2867B2;
 }
 
+.button.twitter {
+    background: #1da1f2;
+}
+
 .button.instagram {
     background: #e1306c;
+}
+
+.button.lastfm {
+    background: #d51007;
 }
 
 .button.finale {
