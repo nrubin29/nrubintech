@@ -1,0 +1,330 @@
+/* Noah Rubin Technologies, LLC - Landing Page Styles */
+
+/* ==========================================================================
+   1. Design System & CSS Custom Properties
+   ========================================================================== */
+:root {
+    /* Color Palette - Light Mode (Default) */
+    --bg-color: #fcfcfc;
+    --card-bg: #ffffff;
+    --card-border: #e5e5e5;
+    --card-border-hover: #e11d48; /* Sophisticated red accent */
+    --text-primary: #111111;
+    --text-secondary: #555555;
+    --text-muted: #888888;
+    --accent: #e11d48; /* Main red accent */
+    --accent-hover: #be123c;
+    --accent-light: rgba(225, 29, 72, 0.05);
+    --focus-ring: rgba(225, 29, 72, 0.3);
+    
+    /* Layout & Spacing */
+    --max-width: 740px;
+    --border-radius: 12px;
+    --transition-speed: 0.25s;
+    --transition-curve: cubic-bezier(0.16, 1, 0.3, 1);
+    
+    /* Typography */
+    --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        /* Color Palette - Dark Mode */
+        --bg-color: #0b0b0c;
+        --card-bg: #141416;
+        --card-border: #222225;
+        --card-border-hover: #f43f5e; /* Slightly brighter red for dark mode contrast */
+        --text-primary: #f3f4f6;
+        --text-secondary: #9ca3af;
+        --text-muted: #6b7280;
+        --accent: #f43f5e;
+        --accent-hover: #fda4af;
+        --accent-light: rgba(244, 63, 94, 0.08);
+        --focus-ring: rgba(244, 63, 94, 0.4);
+    }
+}
+
+/* ==========================================================================
+   2. Reset & Base Styles
+   ========================================================================== */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    padding: 3rem 1.5rem;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.container {
+    width: 100%;
+    max-width: var(--max-width);
+    margin: 0 auto;
+}
+
+/* ==========================================================================
+   3. Header Section
+   ========================================================================== */
+.site-header {
+    margin-bottom: 3.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.logo-area {
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+}
+
+.company-name {
+    font-size: clamp(1.75rem, 5vw, 2.5rem);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1.15;
+    color: var(--text-primary);
+}
+
+/* ==========================================================================
+   4. Subtitle & Link Styles
+   ========================================================================== */
+.subtitle {
+    font-size: clamp(1.05rem, 3vw, 1.2rem);
+    font-weight: 400;
+    color: var(--text-secondary);
+    letter-spacing: -0.01em;
+    line-height: 1.5;
+}
+
+.text-link {
+    color: var(--text-primary);
+    text-decoration: none;
+    font-weight: 500;
+    border-bottom: 1.5px solid var(--accent);
+    transition: color var(--transition-speed) var(--transition-curve),
+                border-color var(--transition-speed) var(--transition-curve);
+}
+
+.text-link:hover {
+    color: var(--accent);
+    border-color: var(--accent-hover);
+}
+
+.text-link:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 4px;
+    border-radius: 4px;
+}
+
+/* ==========================================================================
+   5. Apps Section & Grid
+   ========================================================================== */
+.apps-section {
+    margin-bottom: 5rem;
+}
+
+.section-title {
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+    font-weight: 600;
+}
+
+.apps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+}
+
+/* App Cards */
+.app-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 2rem;
+    transition: border-color var(--transition-speed) var(--transition-curve),
+                box-shadow var(--transition-speed) var(--transition-curve),
+                transform var(--transition-speed) var(--transition-curve);
+}
+
+.app-card:not(.placeholder):hover {
+    border-color: var(--card-border-hover);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px -10px rgba(0, 0, 0, 0.05);
+}
+
+@media (prefers-color-scheme: dark) {
+    .app-card:not(.placeholder):hover {
+        box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.4);
+    }
+}
+
+.app-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    width: 100%;
+}
+
+.app-icon-wrapper {
+    color: var(--accent);
+    margin-bottom: 0.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background-color: var(--accent-light);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.app-icon-wrapper.has-image {
+    background-color: transparent;
+}
+
+.app-icon-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.app-title {
+    font-size: 1.35rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+}
+
+.app-description {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.55;
+}
+
+/* App Action Link */
+.app-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    color: var(--text-primary);
+    border-bottom: 2px solid transparent;
+    padding-bottom: 2px;
+    transition: border-color var(--transition-speed) var(--transition-curve),
+                color var(--transition-speed) var(--transition-curve);
+}
+
+.app-link:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+}
+
+.app-link:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 4px;
+    border-radius: 4px;
+}
+
+.external-icon {
+    transition: transform var(--transition-speed) var(--transition-curve);
+}
+
+.app-link:hover .external-icon {
+    transform: translate(2px, -2px);
+}
+
+/* Placeholder Card ("More to Come") */
+.app-card.placeholder {
+    border-style: dashed;
+    border-width: 2px;
+    background-color: transparent;
+    opacity: 0.85;
+}
+
+.app-card.placeholder .app-icon-wrapper {
+    color: var(--text-muted);
+    background-color: transparent;
+    border: 1px dashed var(--card-border);
+}
+
+.app-card.placeholder .app-title {
+    color: var(--text-muted);
+}
+
+.app-card.placeholder .app-description {
+    color: var(--text-muted);
+}
+
+/* ==========================================================================
+   6. Footer Section
+   ========================================================================== */
+.site-footer {
+    border-top: 1px solid var(--card-border);
+    padding-top: 2rem;
+    margin-top: 2rem;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    text-align: left;
+}
+
+/* Screen readers helper */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* ==========================================================================
+   7. Responsiveness Tweaks
+   ========================================================================== */
+@media (max-width: 480px) {
+    body {
+        padding: 2rem 1rem;
+    }
+    
+    .site-header {
+        margin-bottom: 2.5rem;
+    }
+
+    
+    .apps-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .app-card {
+        padding: 1.5rem;
+    }
+}

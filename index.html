@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noah Rubin Technologies, LLC</title>
+    <meta name="description"
+        content="Noah Rubin Technologies, LLC is an independent, one-man app development studio building focused, high-quality, and delightful mobile and web experiences.">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://nrubintech.com">
+    <meta property="og:title" content="Noah Rubin Technologies, LLC">
+    <meta property="og:description"
+        content="Independent app development studio building clean, focused, and delightful experiences.">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Noah Rubin Technologies, LLC">
+    <meta property="twitter:description"
+        content="Independent app development studio building clean, focused, and delightful experiences.">
+
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <header class="site-header">
+            <div class="logo-area">
+                <svg width="40" height="40" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg"
+                    aria-hidden="true">
+                    <circle cx="50" cy="50" r="48" stroke="currentColor" stroke-width="4" />
+                    <path d="M35 70V30L55 52.5L55 30H65V70L45 47.5L45 70H35Z" fill="currentColor" />
+                </svg>
+            </div>
+            <h1 class="company-name">Noah Rubin Technologies</h1>
+            <p class="subtitle">Apps and experiments by <a href="https://noahzrubin.com" class="text-link" target="_blank" rel="noopener noreferrer">Noah Rubin</a>.</p>
+        </header>
+
+        <!-- Main Content -->
+        <main class="site-main">
+
+            <!-- Apps Grid Section -->
+            <section class="apps-section" aria-labelledby="apps-heading">
+                <h2 id="apps-heading" class="section-title">Apps</h2>
+                <div class="apps-grid">
+                    <!-- App 1: Finale -->
+                    <article class="app-card">
+                        <div class="app-info">
+                            <div class="app-icon-wrapper has-image">
+                                <img src="assets/icons/finale.png" alt="Finale Logo" class="app-icon-img" width="48"
+                                    height="48">
+                            </div>
+                            <h3 class="app-title">Finale</h3>
+                            <p class="app-description">
+                                A feature-rich Last.fm client.
+                            </p>
+                        </div>
+                        <a href="https://finale.app" class="app-link" id="link-app-finale" target="_blank"
+                            rel="noopener noreferrer" aria-label="Visit Finale website">
+                            <span>Visit site</span>
+                            <svg class="external-icon" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                                aria-hidden="true">
+                                <line x1="7" y1="17" x2="17" y2="7"></line>
+                                <polyline points="7 7 17 7 17 17"></polyline>
+                            </svg>
+                        </a>
+                    </article>
+
+                    <!-- App 2: BirthdayAlert -->
+                    <article class="app-card">
+                        <div class="app-info">
+                            <div class="app-icon-wrapper has-image">
+                                <img src="assets/icons/birthdayalert.png" alt="BirthdayAlert Logo" class="app-icon-img"
+                                    width="48" height="48">
+                            </div>
+                            <h3 class="app-title">BirthdayAlert</h3>
+                            <p class="app-description">
+                                A utility for on-device reminders of contacts' birthdays.
+                            </p>
+                        </div>
+                        <a href="https://nrubin29.github.io/birthdayalert-landing" class="app-link"
+                            id="link-app-birthdayalert" target="_blank" rel="noopener noreferrer"
+                            aria-label="Visit BirthdayAlert website">
+                            <span>Visit site</span>
+                            <svg class="external-icon" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                                aria-hidden="true">
+                                <line x1="7" y1="17" x2="17" y2="7"></line>
+                                <polyline points="7 7 17 7 17 17"></polyline>
+                            </svg>
+                        </a>
+                    </article>
+
+                    <!-- App 3: More to come (Placeholder) -->
+                    <article class="app-card placeholder">
+                        <div class="app-info">
+                            <div class="app-icon-wrapper">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                    <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"
+                                        stroke-dasharray="4 4" />
+                                    <path d="M12 8V16" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                                    <path d="M8 12H16" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                                </svg>
+                            </div>
+                            <h3 class="app-title">More to come</h3>
+                            <p class="app-description">
+                                Currently designing and developing new mobile and web experiences. Stay tuned.
+                            </p>
+                        </div>
+                    </article>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="site-footer">
+            <p>&copy; <span id="current-year">2026</span> Noah Rubin Technologies, LLC. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <!-- Small script to ensure copyright year is always up to date -->
+    <script>
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+
+</html>
