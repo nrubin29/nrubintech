@@ -1,0 +1,61 @@
+---
+pagination:
+  data: collections.app
+  size: 1
+  alias: app
+permalink: "{{ app.fileSlug }}/terms/index.html"
+layout: layouts/base-app.njk
+---
+{% set pageTitle = "Terms of Service — " + app.data.name %}
+{% set pageDescription = "Terms of Service for " + app.data.name + "." %}
+
+  <div class="policy-hero">
+    <h1>Terms of Service</h1>
+    <p class="policy-date">Last updated: {{ app.data.termsOfService.lastUpdated }}</p>
+  </div>
+
+  <div class="policy-body">
+    <p>Please read these Terms of Service ("Terms") carefully before using {{ app.data.name }} ("the App"). By downloading or using the App, you agree to be bound by these Terms.</p>
+
+    {# Section 1: Acceptance of Terms #}
+    <h2>1. Acceptance of Terms</h2>
+    <p>By accessing or using {{ app.data.name }}, you confirm that you are at least 13 years of age and agree to these Terms. If you do not agree, please do not use the App.</p>
+
+    {# Section 2: License #}
+    <h2>2. License</h2>
+    <p>We grant you a limited, non-exclusive, non-transferable, revocable license to use the App for your personal, non-commercial purposes. You may not:</p>
+    <ul>
+      <li>Copy, modify, or create derivative works of the App;</li>
+      <li>Reverse-engineer, decompile, or disassemble the App;</li>
+      <li>Use the App for any unlawful purpose or in violation of any applicable law.</li>
+    </ul>
+
+    {# Custom sections specific to this app (e.g. Contacts, Notifications) #}
+    {% set counter = 3 %}
+    {% for section in app.data.termsOfService.customSections %}
+      <h2>{{ counter }}. {{ section.title }}</h2>
+      <div>{{ section.content | markdown | safe }}</div>
+      {% set counter = counter + 1 %}
+    {% endfor %}
+
+    {# Standard sections after the custom ones #}
+    <h2>{{ counter }}. No Warranties</h2>
+    <p>The App is provided "as is" and "as available," without warranty of any kind. To the maximum extent permitted by law, we disclaim all warranties, express or implied, including warranties of merchantability, fitness for a particular purpose, and non-infringement. We do not warrant that the App will be error-free or uninterrupted, or that reminders will be delivered at any particular time.</p>
+    {% set counter = counter + 1 %}
+
+    <h2>{{ counter }}. Limitation of Liability</h2>
+    <p>To the maximum extent permitted by applicable law, in no event shall {{ app.data.name }} or its developers be liable for any indirect, incidental, special, consequential, or punitive damages, including loss of data, arising out of or in connection with your use of the App, even if advised of the possibility of such damages.</p>
+    {% set counter = counter + 1 %}
+
+    <h2>{{ counter }}. Changes to the App</h2>
+    <p>We reserve the right to modify or discontinue the App at any time, with or without notice. We shall not be liable to you or any third party for any modification, suspension, or discontinuance of the App.</p>
+    {% set counter = counter + 1 %}
+
+    <h2>{{ counter }}. Changes to These Terms</h2>
+    <p>We may update these Terms from time to time. If we make changes, we will update the "Last updated" date at the top of this page. Your continued use of the App after any changes constitutes your acceptance of the updated Terms.</p>
+    {% set counter = counter + 1 %}
+
+    <h2>{{ counter }}. Governing Law</h2>
+    <p>These Terms shall be governed by and construed in accordance with the laws of the State of California, without regard to its conflict of law provisions.</p>
+
+  </div>

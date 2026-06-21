@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{ pageTitle or (app.data.name + " — " + app.data.tagline) }}</title>
+  <meta name="description" content="{{ pageDescription or app.data.description }}" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="{{ '/assets/css/app-landing.css' | url }}" />
+  <style>
+    :root {
+      --primary: {{ app.data.colors.primary }};
+      --primary-light: {{ app.data.colors.light.primaryLight }};
+      --primary-mid: {{ app.data.colors.light.primaryMid }};
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --primary: {{ app.data.colors.primary }};
+        --primary-light: {{ app.data.colors.dark.primaryLight }};
+        --primary-mid: {{ app.data.colors.dark.primaryMid }};
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="{{ '/' | url }}{{ app.fileSlug }}/" class="nav-logo" style="text-decoration:none;color:inherit;display:flex;align-items:center;gap:8px;">
+        <img src="{{ app.data.icon | url }}" alt="{{ app.data.name }} Logo" style="width:28px;height:28px;border-radius:6px;display:block;" />
+        <span>{{ app.data.name }}</span>
+      </a>
+      <div class="nav-links">
+        <a href="{{ '/' | url }}{{ app.fileSlug }}/privacy/">Privacy</a>
+        <a href="{{ '/' | url }}{{ app.fileSlug }}/terms/">Terms</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- CONTENT -->
+  {{ content | safe }}
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <a href="{{ '/' | url }}{{ app.fileSlug }}/" style="text-decoration:none;color:inherit;display:flex;align-items:center;gap:8px;font-weight:700;">
+        <img src="{{ app.data.icon | url }}" alt="{{ app.data.name }} Logo" style="width:24px;height:24px;border-radius:5px;display:block;" />
+        <span>{{ app.data.name }}</span>
+      </a>
+      <div class="footer-links">
+        <a href="{{ '/' | url }}{{ app.fileSlug }}/privacy/">Privacy Policy</a>
+        <a href="{{ '/' | url }}{{ app.fileSlug }}/terms/">Terms of Service</a>
+      </div>
+      <p class="footer-copy">© 2026 <a href="{{ '/' | url }}" style="color: inherit; text-decoration: underline;">Noah Rubin Technologies LLC</a>. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+
+</html>

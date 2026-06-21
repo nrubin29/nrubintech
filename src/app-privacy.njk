@@ -1,0 +1,24 @@
+---
+pagination:
+  data: collections.app
+  size: 1
+  alias: app
+permalink: "{{ app.fileSlug }}/privacy/index.html"
+layout: layouts/base-app.njk
+---
+{% set pageTitle = "Privacy Policy — " + app.data.name %}
+{% set pageDescription = "Privacy Policy for " + app.data.name + ". Your data stays on your device." %}
+
+  <div class="policy-hero">
+    <h1>Privacy Policy</h1>
+    <p class="policy-date">Last updated: {{ app.data.privacyPolicy.lastUpdated }}</p>
+  </div>
+
+  <div class="policy-body">
+    <p>{{ app.data.name }} ("the App," "we," "our," or "us") is designed with privacy as a first principle. This policy explains what information the App accesses, how it is used, and what we do not do with it.</p>
+
+    {% for section in app.data.privacyPolicy.sections %}
+      <h2>{{ section.title }}</h2>
+      <div>{{ section.content | markdown | safe }}</div>
+    {% endfor %}
+  </div>
