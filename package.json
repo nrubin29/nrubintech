@@ -1,0 +1,17 @@
+{
+  "name": "nrubintech",
+  "version": "1.0.0",
+  "description": "Noah Rubin Technologies, LLC website",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "build": "npx @11ty/eleventy",
+    "start": "npx @11ty/eleventy --serve"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0"
+  }
+}
