@@ -4,6 +4,7 @@ permalink: false
 name: BirthdayAlert
 icon: /assets/icons/birthdayalert.png
 tagline: Never miss a birthday again.
+summary: A utility for on-device reminders of contacts' birthdays.
 description: BirthdayAlert reminds you of your contacts' birthdays so you always have time to reach out. Simple, private, and free.
 appStoreUrl: https://apps.apple.com/us/app/birthdayalert/id6766781731
 colors:

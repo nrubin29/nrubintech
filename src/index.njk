@@ -1,3 +1,6 @@
+---
+layout: false
+---
 <!DOCTYPE html>
 <html lang="en">
 
@@ -31,6 +34,32 @@
 </head>
 
 <body>
+    {% macro appCard(name, description, icon, url, id, isExternal=false) %}
+    <article class="app-card">
+        <div class="app-info">
+            <div class="app-icon-wrapper has-image">
+                <img src="{{ icon | url }}" alt="{{ name }} Logo" class="app-icon-img" width="48"
+                    height="48">
+            </div>
+            <h3 class="app-title">{{ name }}</h3>
+            <p class="app-description">
+                {{ description | safe }}
+            </p>
+        </div>
+        <a href="{{ url }}" class="app-link" id="{{ id }}"
+            {% if isExternal %}target="_blank" rel="noopener noreferrer"{% endif %}
+            aria-label="Visit {{ name }} website">
+            <span>Visit site</span>
+            <svg class="external-icon" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                aria-hidden="true">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+            </svg>
+        </a>
+    </article>
+    {% endmacro %}
+
     <div class="container">
         <!-- Header Section -->
         <header class="site-header">
@@ -52,54 +81,27 @@
             <section class="apps-section" aria-labelledby="apps-heading">
                 <h2 id="apps-heading" class="section-title">Apps</h2>
                 <div class="apps-grid">
-                    <!-- App 1: Finale -->
-                    <article class="app-card">
-                        <div class="app-info">
-                            <div class="app-icon-wrapper has-image">
-                                <img src="assets/icons/finale.png" alt="Finale Logo" class="app-icon-img" width="48"
-                                    height="48">
-                            </div>
-                            <h3 class="app-title">Finale</h3>
-                            <p class="app-description">
-                                A feature-rich Last.fm client.
-                            </p>
-                        </div>
-                        <a href="https://finale.app" class="app-link" id="link-app-finale" target="_blank"
-                            rel="noopener noreferrer" aria-label="Visit Finale website">
-                            <span>Visit site</span>
-                            <svg class="external-icon" width="14" height="14" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
-                                aria-hidden="true">
-                                <line x1="7" y1="17" x2="17" y2="7"></line>
-                                <polyline points="7 7 17 7 17 17"></polyline>
-                            </svg>
-                        </a>
-                    </article>
+                    <!-- App 1: Finale (Hardcoded) -->
+                    {{ appCard(
+                        name="Finale",
+                        description="A feature-rich Last.fm client.",
+                        icon="assets/icons/finale.png",
+                        url="https://finale.app",
+                        id="link-app-finale",
+                        isExternal=true
+                    ) }}
 
-                    <!-- App 2: BirthdayAlert -->
-                    <article class="app-card">
-                        <div class="app-info">
-                            <div class="app-icon-wrapper has-image">
-                                <img src="assets/icons/birthdayalert.png" alt="BirthdayAlert Logo" class="app-icon-img"
-                                    width="48" height="48">
-                            </div>
-                            <h3 class="app-title">BirthdayAlert</h3>
-                            <p class="app-description">
-                                A utility for on-device reminders of contacts' birthdays.
-                            </p>
-                        </div>
-                        <a href="/birthdayalert/" class="app-link"
-                            id="link-app-birthdayalert"
-                            aria-label="Visit BirthdayAlert website">
-                            <span>Visit site</span>
-                            <svg class="external-icon" width="14" height="14" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
-                                aria-hidden="true">
-                                <line x1="7" y1="17" x2="17" y2="7"></line>
-                                <polyline points="7 7 17 7 17 17"></polyline>
-                            </svg>
-                        </a>
-                    </article>
+                    <!-- Dynamic Apps from collection -->
+                    {% for app in collections.app %}
+                        {{ appCard(
+                            name=app.data.name,
+                            description=app.data.summary or app.data.tagline,
+                            icon=app.data.icon,
+                            url=('/' ~ app.fileSlug ~ '/') | url,
+                            id="link-app-" ~ app.fileSlug,
+                            isExternal=false
+                        ) }}
+                    {% endfor %}
 
                     <!-- App 3: More to come (Placeholder) -->
                     <article class="app-card placeholder">
