@@ -166,15 +166,30 @@ body {
     justify-content: space-between;
     align-items: flex-start;
     gap: 2rem;
+    text-decoration: none;
+    color: inherit;
     transition: border-color var(--transition-speed) var(--transition-curve),
                 box-shadow var(--transition-speed) var(--transition-curve),
                 transform var(--transition-speed) var(--transition-curve);
+}
+
+a.app-card {
+    cursor: pointer;
+}
+
+a.app-card:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 4px;
 }
 
 .app-card:not(.placeholder):hover {
     border-color: var(--card-border-hover);
     transform: translateY(-4px);
     box-shadow: 0 12px 24px -10px rgba(0, 0, 0, 0.05);
+}
+
+.app-card:not(.placeholder):hover .app-title {
+    color: var(--accent);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -218,46 +233,13 @@ body {
     font-weight: 600;
     letter-spacing: -0.02em;
     color: var(--text-primary);
+    transition: color var(--transition-speed) var(--transition-curve);
 }
 
 .app-description {
     font-size: 0.95rem;
     color: var(--text-secondary);
     line-height: 1.55;
-}
-
-/* App Action Link */
-.app-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
-    font-size: 0.9rem;
-    font-weight: 600;
-    text-decoration: none;
-    color: var(--text-primary);
-    border-bottom: 2px solid transparent;
-    padding-bottom: 2px;
-    transition: border-color var(--transition-speed) var(--transition-curve),
-                color var(--transition-speed) var(--transition-curve);
-}
-
-.app-link:hover {
-    color: var(--accent);
-    border-color: var(--accent);
-}
-
-.app-link:focus-visible {
-    outline: 2px solid var(--accent);
-    outline-offset: 4px;
-    border-radius: 4px;
-}
-
-.external-icon {
-    transition: transform var(--transition-speed) var(--transition-curve);
-}
-
-.app-link:hover .external-icon {
-    transform: translate(2px, -2px);
 }
 
 /* Placeholder Card ("More to Come") */
