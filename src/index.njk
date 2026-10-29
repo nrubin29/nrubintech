@@ -82,7 +82,7 @@ layout: false
                     ) }}
 
                     <!-- Dynamic Apps from collection -->
-                    {% for app in collections.app %}
+                    {% for app in collections.app | sort(false, false, "data.order") %}
                         {{ appCard(
                             name=app.data.name,
                             description=app.data.summary or app.data.tagline,

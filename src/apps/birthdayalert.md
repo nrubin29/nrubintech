@@ -1,6 +1,7 @@
 ---
 tags: app
 permalink: false
+order: 2
 name: BirthdayAlert
 icon: /assets/icons/birthdayalert.png
 tagline: Never miss a birthday again.

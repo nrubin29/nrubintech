@@ -20,6 +20,71 @@ layout: layouts/base-app.njk
         Download on the App Store
       </a>
     </div>
+    {% if app.data.hero.foldable %}
+    <div class="duo-showcase">
+      <div class="duo-stage">
+        <div class="duo-device-frame" id="duo-device-frame" title="Click to fold or unfold">
+          <img
+            src="{{ app.data.hero.foldable.open.src | url }}"
+            alt="{{ app.data.hero.foldable.open.alt }}"
+            class="duo-img duo-img-open"
+          />
+          <img
+            src="{{ app.data.hero.foldable.closed.src | url }}"
+            alt="{{ app.data.hero.foldable.closed.alt }}"
+            class="duo-img duo-img-closed"
+          />
+        </div>
+      </div>
+
+      <fieldset class="duo-toggle">
+        <legend class="sr-only">iPhone Duo display state</legend>
+        <label class="duo-toggle-option">
+          <input type="radio" name="duo-state" value="open" class="duo-input duo-input-open" checked />
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="2" y="4" width="20" height="16" rx="2.5" />
+            <line x1="12" y1="4" x2="12" y2="20" stroke-dasharray="2 2" />
+          </svg>
+          <span>{{ app.data.hero.foldable.open.label }}</span>
+        </label>
+        <label class="duo-toggle-option">
+          <input type="radio" name="duo-state" value="closed" class="duo-input duo-input-closed" />
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="6" y="3" width="12" height="18" rx="2.5" />
+            <circle cx="12" cy="12" r="2.5" />
+          </svg>
+          <span>{{ app.data.hero.foldable.closed.label }}</span>
+        </label>
+      </fieldset>
+
+      <p class="duo-caption" aria-live="polite">
+        <span class="duo-caption-open">{{ app.data.hero.foldable.open.caption }}</span>
+        <span class="duo-caption-closed">{{ app.data.hero.foldable.closed.caption }}</span>
+      </p>
+    </div>
+    <script>
+      (function () {
+        const showcase = document.querySelector('.duo-showcase');
+        const frame = document.getElementById('duo-device-frame');
+        const openInput = showcase?.querySelector('.duo-input-open');
+        const closedInput = showcase?.querySelector('.duo-input-closed');
+
+        if (frame && openInput && closedInput) {
+          frame.addEventListener('click', () => {
+            const nextInput = openInput.checked ? closedInput : openInput;
+            nextInput.checked = true;
+            nextInput.dispatchEvent(new Event('change', { bubbles: true }));
+          });
+        }
+
+        if (!window.CSS || !CSS.supports('selector(:has(*))')) {
+          showcase?.addEventListener('change', () => {
+            showcase.classList.toggle('is-closed', Boolean(closedInput?.checked));
+          });
+        }
+      })();
+    </script>
+    {% else %}
     <div class="hero-screenshots">
       {% for screenshot in app.data.hero.screenshots %}
       <div class="phone-frame">
@@ -27,6 +92,7 @@ layout: layouts/base-app.njk
       </div>
       {% endfor %}
     </div>
+    {% endif %}
   </section>
 
   <!-- FEATURES -->
