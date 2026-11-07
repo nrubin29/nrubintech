@@ -7,7 +7,7 @@ icon: /assets/icons/duophonic.png
 tagline: Your Apple Music library, on vinyl.
 summary: Play the albums and playlists in your Apple Music library on a skeuomorphic turntable.
 description: Duophonic turns your Apple Music library into a crate of vinyl records and a tactile direct-drive turntable — complete with custom-pressed colored vinyl, tonearm cues, and warm surface crackle.
-appStoreUrl: "#"
+appStoreUrl: https://apps.apple.com/us/app/duophonic-record-player/id6828184374
 colors:
   primary: "#D96B27"
   light:
