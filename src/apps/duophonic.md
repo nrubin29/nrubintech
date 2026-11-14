@@ -1,7 +1,7 @@
 ---
 tags: app
 permalink: false
-order: 1
+order: 2
 name: Duophonic
 icon: /assets/icons/duophonic.png
 tagline: Your Apple Music library, on vinyl.

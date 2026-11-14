@@ -208,6 +208,25 @@ body {
   display: block;
 }
 
+.hero-screenshots-gallery {
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 20px;
+}
+
+.hero-screenshots-gallery .phone-frame:first-child,
+.hero-screenshots-gallery .phone-frame:last-child {
+  transform: none;
+}
+
+.hero-screenshots-gallery .phone-frame {
+  border-radius: 30px;
+}
+
+.hero-screenshots-gallery .phone-frame img {
+  width: 185px;
+}
+
 /* ── FOLDABLE SHOWCASE (iPhone Duo) ──────── */
 
 .sr-only {
@@ -625,7 +644,8 @@ body {
     gap: 40px;
   }
 
-  .phone-frame img {
+  .phone-frame img,
+  .hero-screenshots-gallery .phone-frame img {
     width: 160px;
   }
 
@@ -650,11 +670,13 @@ body {
     grid-template-columns: 1fr;
   }
 
-  .phone-frame img {
+  .phone-frame img,
+  .hero-screenshots-gallery .phone-frame img {
     width: 130px;
   }
 
-  .phone-frame {
+  .phone-frame,
+  .hero-screenshots-gallery .phone-frame {
     border-radius: 24px;
   }
 }

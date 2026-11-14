@@ -85,7 +85,7 @@ layout: layouts/base-app.njk
       })();
     </script>
     {% else %}
-    <div class="hero-screenshots">
+    <div class="hero-screenshots{% if app.data.hero.screenshots.length > 2 %} hero-screenshots-gallery{% endif %}">
       {% for screenshot in app.data.hero.screenshots %}
       <div class="phone-frame">
         <img src="{{ screenshot.src | url }}" alt="{{ screenshot.alt }}" />
