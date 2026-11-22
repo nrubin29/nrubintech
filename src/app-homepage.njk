@@ -27,39 +27,93 @@ layout: layouts/base-app.njk
           <img
             src="{{ app.data.hero.foldable.open.src | url }}"
             alt="{{ app.data.hero.foldable.open.alt }}"
-            class="duo-img duo-img-open"
+            class="duo-img duo-img-open duo-img-turntable"
+            width="1280"
+            height="900"
+            fetchpriority="high"
           />
+          {% if app.data.hero.foldable.gatefold %}
+          <img
+            src="{{ app.data.hero.foldable.gatefold.open.src | url }}"
+            alt="{{ app.data.hero.foldable.gatefold.open.alt }}"
+            class="duo-img duo-img-open duo-img-gatefold"
+            width="1280"
+            height="900"
+            fetchpriority="low"
+          />
+          {% endif %}
           <img
             src="{{ app.data.hero.foldable.closed.src | url }}"
             alt="{{ app.data.hero.foldable.closed.alt }}"
-            class="duo-img duo-img-closed"
+            class="duo-img duo-img-closed duo-img-turntable"
+            width="879"
+            height="1280"
+            fetchpriority="low"
           />
+          {% if app.data.hero.foldable.gatefold %}
+          <img
+            src="{{ app.data.hero.foldable.gatefold.closed.src | url }}"
+            alt="{{ app.data.hero.foldable.gatefold.closed.alt }}"
+            class="duo-img duo-img-closed duo-img-gatefold"
+            width="879"
+            height="1280"
+            fetchpriority="low"
+          />
+          {% endif %}
         </div>
       </div>
 
-      <fieldset class="duo-toggle">
-        <legend class="sr-only">iPhone Duo display state</legend>
-        <label class="duo-toggle-option">
-          <input type="radio" name="duo-state" value="open" class="duo-input duo-input-open" checked />
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <rect x="2" y="4" width="20" height="16" rx="2.5" />
-            <line x1="12" y1="4" x2="12" y2="20" stroke-dasharray="2 2" />
-          </svg>
-          <span>{{ app.data.hero.foldable.open.label }}</span>
-        </label>
-        <label class="duo-toggle-option">
-          <input type="radio" name="duo-state" value="closed" class="duo-input duo-input-closed" />
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <rect x="6" y="3" width="12" height="18" rx="2.5" />
-            <circle cx="12" cy="12" r="2.5" />
-          </svg>
-          <span>{{ app.data.hero.foldable.closed.label }}</span>
-        </label>
-      </fieldset>
+      <div class="duo-controls">
+        <fieldset class="duo-toggle duo-toggle-state">
+          <legend class="sr-only">iPhone Duo display state</legend>
+          <label class="duo-toggle-option">
+            <input type="radio" name="duo-state" value="open" class="duo-input duo-input-open" checked />
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="2" y="4" width="20" height="16" rx="2.5" />
+              <line x1="12" y1="4" x2="12" y2="20" stroke-dasharray="2 2" />
+            </svg>
+            <span>{{ app.data.hero.foldable.open.label }}</span>
+          </label>
+          <label class="duo-toggle-option">
+            <input type="radio" name="duo-state" value="closed" class="duo-input duo-input-closed" />
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="6" y="3" width="12" height="18" rx="2.5" />
+              <circle cx="12" cy="12" r="2.5" />
+            </svg>
+            <span>{{ app.data.hero.foldable.closed.label }}</span>
+          </label>
+        </fieldset>
+
+        {% if app.data.hero.foldable.gatefold %}
+        <fieldset class="duo-toggle duo-toggle-view">
+          <legend class="sr-only">App screen view</legend>
+          <label class="duo-toggle-option">
+            <input type="radio" name="duo-view" value="turntable" class="duo-input duo-input-turntable" checked />
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="9" />
+              <circle cx="12" cy="12" r="2.5" />
+            </svg>
+            <span>{{ app.data.hero.foldable.gatefold.turntableLabel }}</span>
+          </label>
+          <label class="duo-toggle-option">
+            <input type="radio" name="duo-view" value="gatefold" class="duo-input duo-input-gatefold" />
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M2 5.5A1.5 1.5 0 0 1 3.5 4H10a2 2 0 0 1 2 2v14a1.5 1.5 0 0 0-1.5-1.5H3.5A1.5 1.5 0 0 1 2 17V5.5Z" />
+              <path d="M22 5.5A1.5 1.5 0 0 0 20.5 4H14a2 2 0 0 0-2 2v14a1.5 1.5 0 0 1 1.5-1.5h7A1.5 1.5 0 0 0 22 17V5.5Z" />
+            </svg>
+            <span>{{ app.data.hero.foldable.gatefold.gatefoldLabel }}</span>
+          </label>
+        </fieldset>
+        {% endif %}
+      </div>
 
       <p class="duo-caption" aria-live="polite">
-        <span class="duo-caption-open">{{ app.data.hero.foldable.open.caption }}</span>
-        <span class="duo-caption-closed">{{ app.data.hero.foldable.closed.caption }}</span>
+        <span class="duo-caption-open-turntable">{{ app.data.hero.foldable.open.caption }}</span>
+        <span class="duo-caption-closed-turntable">{{ app.data.hero.foldable.closed.caption }}</span>
+        {% if app.data.hero.foldable.gatefold %}
+        <span class="duo-caption-open-gatefold">{{ app.data.hero.foldable.gatefold.open.caption }}</span>
+        <span class="duo-caption-closed-gatefold">{{ app.data.hero.foldable.gatefold.closed.caption }}</span>
+        {% endif %}
       </p>
     </div>
     <script>
@@ -68,6 +122,7 @@ layout: layouts/base-app.njk
         const frame = document.getElementById('duo-device-frame');
         const openInput = showcase?.querySelector('.duo-input-open');
         const closedInput = showcase?.querySelector('.duo-input-closed');
+        const gatefoldInput = showcase?.querySelector('.duo-input-gatefold');
 
         if (frame && openInput && closedInput) {
           frame.addEventListener('click', () => {
@@ -80,6 +135,7 @@ layout: layouts/base-app.njk
         if (!window.CSS || !CSS.supports('selector(:has(*))')) {
           showcase?.addEventListener('change', () => {
             showcase.classList.toggle('is-closed', Boolean(closedInput?.checked));
+            showcase.classList.toggle('is-gatefold', Boolean(gatefoldInput?.checked));
           });
         }
       })();

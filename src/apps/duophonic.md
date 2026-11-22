@@ -21,14 +21,25 @@ hero:
   foldable:
     open:
       src: /assets/apps/duophonic/screenshot-open.jpg
-      alt: Duophonic open on iPhone Duo showing the wooden record crate on the left and direct-drive turntable on the right
+      alt: Duophonic open on iPhone Duo showing the wooden record crate on the left and direct-drive turntable spinning Low Tide Hymns on teal vinyl on the right
       label: Open
       caption: Unfolded — pick a sleeve from the crate to load the platter.
     closed:
       src: /assets/apps/duophonic/screenshot-closed.jpg
-      alt: Duophonic closed on iPhone Duo cover display playing Afterglow FM on red vinyl
+      alt: Duophonic closed on iPhone Duo cover display playing Low Tide Hymns on teal vinyl
       label: Closed
       caption: Folded shut — closing the phone drops the needle and starts playback.
+    gatefold:
+      turntableLabel: Turntable
+      gatefoldLabel: Gatefold
+      open:
+        src: /assets/apps/duophonic/screenshot-open-gatefold.jpg
+        alt: Duophonic open on iPhone Duo showing the two-page gatefold liner notes and tracklist for Low Tide Hymns
+        caption: Unfolded gatefold — read album liner notes on the left and tap any track on the right.
+      closed:
+        src: /assets/apps/duophonic/screenshot-closed-gatefold.jpg
+        alt: Duophonic closed on iPhone Duo cover display showing the gatefold liner notes and tracklist for Low Tide Hymns
+        caption: Folded gatefold — album notes and tracklist stacked for the cover display.
 featuresTitle: Built for the ritual of putting on a record.
 features:
   - icon: 🎛️
